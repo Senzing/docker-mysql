@@ -1,4 +1,4 @@
-# docker-mysql
+# mysql
 
 ## Run Docker container
 
