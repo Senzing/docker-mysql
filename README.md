@@ -46,13 +46,13 @@
     ```
 
 1. Create the docker container.
-   Note: parameters after dockter/mysql are [mysql CLI options](https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html).
+   Note: parameters after senzing/mysql are [mysql CLI options](https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html).
 
     ```console
     docker run -it  \
       --volume ${MYSQL_DIR}:/sql \
       --net ${MYSQL_NETWORK} \
-      dockter/mysql \
+      senzing/mysql \
         --user=${MYSQL_USERNAME} \
         --password=${MYSQL_PASSWORD} \
         --host=${MYSQL_HOST} \
@@ -85,8 +85,8 @@ These variables may be modified, but do not need to be modified.
 The variables are used throughout the installation procedure.
 
 ```console
-export GIT_ACCOUNT=docktermj
-export GIT_REPOSITORY=docker-mysql
+export GIT_ACCOUNT=senzing
+export GIT_REPOSITORY=mysql
 export DOCKER_IMAGE_TAG=mysql
 export DOCKER_CONTAINER_NAME=mysql-container
 ```
@@ -140,8 +140,8 @@ docker images
     ```console
     cd ${GIT_REPOSITORY_DIR}
     docker build \
-      --tag dockter/mysql \
-      --tag dockter/mysql:${DOCKER_IMAGE_VERSION} \
+      --tag senzing/mysql \
+      --tag senzing/mysql:${DOCKER_IMAGE_VERSION} \
       .
     docker images
     ```
@@ -149,5 +149,5 @@ docker images
 1. Push to hub.docker.com
 
     ```console
-    docker push "dockter/mysql"
+    docker push "senzing/mysql"
     ```
