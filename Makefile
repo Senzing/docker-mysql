@@ -3,10 +3,6 @@
 GIT_REPOSITORY_NAME := $(shell basename `git rev-parse --show-toplevel`)
 GIT_VERSION := $(shell git describe --always --tags --long --dirty | sed -e 's/\-0//' -e 's/\-g.......//')
 
-# Docker variables
-
-DOCKER_IMAGE_TAG ?= $(GIT_REPOSITORY_NAME):$(GIT_VERSION)
-
 # -----------------------------------------------------------------------------
 # The first "make" target runs as default.
 # -----------------------------------------------------------------------------
@@ -21,7 +17,8 @@ default: help
 .PHONY: docker-build
 docker-build: docker-rmi
 	docker build \
-		--tag $(DOCKER_IMAGE_TAG) \
+	    --tag senzing/mysql \
+		--tag senzing/mysql:$(GIT_VERSION) \
 		.
 
 # -----------------------------------------------------------------------------
@@ -30,7 +27,7 @@ docker-build: docker-rmi
 
 .PHONY: docker-rmi
 docker-rmi:
-	-docker rmi --force $(DOCKER_IMAGE_TAG)
+	-docker rmi --force senzing/mysql:$(GIT_VERSION) senzing/mysql
 
 .PHONY: clean
 clean: docker-rm docker-rmi
