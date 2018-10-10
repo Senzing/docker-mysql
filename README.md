@@ -1,4 +1,4 @@
-# mysql
+# docker-mysql
 
 ## Overview
 
@@ -31,7 +31,7 @@ The variables are used throughout the installation procedure.
 
 ```console
 export GIT_ACCOUNT=senzing
-export GIT_REPOSITORY=mysql
+export GIT_REPOSITORY=docker-mysql
 ```
 
 Synthesize environment variables.
