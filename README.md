@@ -2,71 +2,17 @@
 
 ## Overview
 
+This Dockerfile is a wrapper over the [MySQL Command-Line Tool](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+
+### Contents
+
 1. [Create Docker container](#create-docker-container)
 1. [Run Docker container](#run-docker-container)
 
 ## Create docker container
 
-### Preparation
-
-The following programs need to be installed:
-
 ```console
-git --version
-
-docker --version
-docker run hello-world
-```
-
-Optional:
-
-```console
-make --version
-```
-
-### Set Environment variables
-
-These variables may be modified, but do not need to be modified.
-The variables are used throughout the installation procedure.
-
-```console
-export GIT_ACCOUNT=senzing
-export GIT_REPOSITORY=docker-mysql
-```
-
-Synthesize environment variables.
-
-```console
-export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
-export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
-export GIT_REPOSITORY_URL="https://github.com/${GIT_ACCOUNT}/${GIT_REPOSITORY}.git"
-```
-
-### Clone repository
-
-Get repository.
-
-```console
-mkdir --parents ${GIT_ACCOUNT_DIR}
-cd  ${GIT_ACCOUNT_DIR}
-git clone ${GIT_REPOSITORY_URL}
-```
-
-### Build Docker image
-
-Option #1 - Using make command
-
-```console
-cd ${GIT_REPOSITORY_DIR}
-make docker-build
-docker images
-```
-
-Option #2 - Using docker command
-
-```console
-cd ${GIT_REPOSITORY_DIR}
-docker build --tag senzing/mysql .
+docker build -t senzing/mysql https://github.com/senzing/docker-mysql.git
 ```
 
 ## Run Docker container
