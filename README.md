@@ -12,7 +12,7 @@ This Dockerfile is a wrapper over the [MySQL Command-Line Tool](https://dev.mysq
 ## Create docker container
 
 ```console
-docker build -t senzing/mysql https://github.com/senzing/docker-mysql.git
+docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
 ```
 
 ## Run Docker container
