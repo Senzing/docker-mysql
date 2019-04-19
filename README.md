@@ -12,7 +12,7 @@ This Dockerfile is a wrapper over the [MySQL Command-Line Tool](https://dev.mysq
 ## Create docker container
 
 ```console
-docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
+sudo docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
 ```
 
 ## Run Docker container
@@ -44,7 +44,7 @@ docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
    Example:
 
     ```console
-    docker ps
+    sudo docker ps
 
     # Choose value from NAMES column of docker ps
     export MYSQL_HOST=docker-container-name
@@ -54,7 +54,7 @@ docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
    Example:
 
     ```console
-    docker network ls
+    sudo docker network ls
 
     # Choose value from NAME column of docker network ls
     export MYSQL_NETWORK=nameofthe_network
@@ -64,7 +64,7 @@ docker build --tag senzing/mysql https://github.com/senzing/docker-mysql.git
    Note: parameters after senzing/mysql are [mysql CLI options](https://dev.mysql.com/doc/refman/5.7/en/mysql-command-options.html).
 
     ```console
-    docker run -it  \
+    sudo docker run -it  \
       --volume ${MYSQL_DIR}:/sql \
       --net ${MYSQL_NETWORK} \
       senzing/mysql \
